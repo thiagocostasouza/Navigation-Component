@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id "androidx.navigation.safeargs.kotlin"
+
 }
 
 android {
@@ -37,6 +39,9 @@ dependencies {
     def lifecycle_version = "2.3.1"
     def arch_version = "2.1.0"
     def nav_version = "2.3.5"
+
+
+
 
 
     // ViewModel

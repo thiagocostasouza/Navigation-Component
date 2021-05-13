@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.addCallback
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.navigationcomponentapp.R
+import com.example.navigationcomponentapp.extensions.dismissError
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment() {
@@ -59,6 +61,16 @@ class LoginFragment : Fragment() {
 
             viewModel.authentication(username, password)
         }
+
+
+        inputLoginUserName.addTextChangedListener {
+            inputLayoutLoginUserName.dismissError()
+        }
+
+        inputLoginPassword.addTextChangedListener {
+            inputLayoutPassword.dismissError()
+        }
+
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             cancelAuthentication()
