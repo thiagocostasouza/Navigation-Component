@@ -8,14 +8,11 @@
         android:id="@+id/startFragment"
         android:name="com.example.navigationcomponentapp.ui.start.StartFragment"
         android:label="@string/start_action_bar_title"
-        tools:layout="@layout/fragment_start" >
+        tools:layout="@layout/fragment_start">
+
         <action
             android:id="@+id/action_startFragment_to_profileFragment"
-            app:destination="@id/profileFragment"
-             />
-        <action
-            android:id="@+id/action_startFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -26,18 +23,20 @@
         android:id="@+id/loginFragment"
         android:name="com.example.navigationcomponentapp.ui.login.LoginFragment"
         android:label="@string/login_action_bar_title"
-        tools:layout="@layout/login_fragment" >
+        tools:layout="@layout/login_fragment">
         <action
-            android:id="@+id/action_loginFragment_to_regisrtationNavigation"
-            app:destination="@id/registrationNavigation" />
+            android:id="@+id/action_loginFragment_to_navigation"
+            app:destination="@id/nav_graph_registration" />
     </fragment>
-    <navigation android:id="@+id/registrationNavigation"
+
+    <navigation
+        android:id="@+id/nav_graph_registration"
         app:startDestination="@id/profileDataFragment">
         <fragment
             android:id="@+id/profileDataFragment"
             android:name="com.example.navigationcomponentapp.ui.registration.profile.ProfileDataFragment"
-            android:label="fragment_profile_data"
-            tools:layout="@layout/fragment_profile_data" >
+            android:label="@string/profile_data_action_bar_title"
+            tools:layout="@layout/fragment_profile_data">
             <action
                 android:id="@+id/action_profileDataFragment_to_chooseCredentialsFragment"
                 app:destination="@id/chooseCredentialsFragment" />
@@ -45,11 +44,14 @@
         <fragment
             android:id="@+id/chooseCredentialsFragment"
             android:name="com.example.navigationcomponentapp.ui.registration.choosecredentials.ChooseCredentialsFragment"
-            android:label="fragment_choose_credentials"
+            android:label="@string/choose_credentials_action_bar_title"
             tools:layout="@layout/fragment_choose_credentials">
-            <argument android:name="name"
+
+            <argument
+                android:name="name"
                 app:argType="string"
-                app:nullable="false"/>
+                app:nullable="false" />
+
         </fragment>
     </navigation>
 </navigation>
